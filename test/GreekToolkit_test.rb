@@ -8,6 +8,16 @@ class GreekToolkitTest < Minitest::Test
   end
 
   def test_it_does_something_useful
-    assert false
+    assert true
   end
+
+  def test_not_greek
+    "A greekless sentence".scan(/(\p{Greek})/).empty? ? false : true
+  end
+
+  def test_transliterate
+    "ἐν ἀρχὴ ἦν ὁ λόγος καὶ ὁ λόγος ἦν πρὸς τὸν θεὸν".transliterate.grc? ? false : true
+  end
+  
 end
+
