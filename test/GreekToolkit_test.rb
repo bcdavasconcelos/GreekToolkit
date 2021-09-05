@@ -11,12 +11,16 @@ class GreekToolkitTest < Minitest::Test
     assert true
   end
 
-  def test_not_greek
+  def no_greek
     "A greekless sentence".scan(/(\p{Greek})/).empty? ? false : true
   end
 
-  def test_transliterate
-    "ἐν ἀρχὴ ἦν ὁ λόγος καὶ ὁ λόγος ἦν πρὸς τὸν θεὸν".transliterate.grc? ? false : true
+  def not_transliterate
+    if 'ἐν ἀρχὴ ἦν ὁ λόγος καὶ ὁ λόγος ἦν πρὸς τὸν θεὸν'.transliterate.grc? == false
+      true
+    else
+      false
+    end
   end
   
 end
